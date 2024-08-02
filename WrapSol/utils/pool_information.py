@@ -7,6 +7,7 @@ from layouts import AMM_INFO_LAYOUT_V4_1, MARKET_LAYOUT,get_offset
 from solders.pubkey import Pubkey
 import os
 from dotenv import load_dotenv
+from construct import Struct as cStruct
 
 # Load.env file
 load_dotenv()

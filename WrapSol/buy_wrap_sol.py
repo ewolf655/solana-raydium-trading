@@ -160,7 +160,7 @@ async def buy(solana_client, TOKEN_TO_SWAP_BUY, payer, amount):
 
 async def main():
 
-    token_toBuy="RUpbmGF6p42AAeN1QvhFReZejQry1cLkE1PUYFVVpnL"
+    token_toBuy="HrT8jF51pix8FiodJqEqkDZKwsyPUgDkvcqVd8kzBBX7"
     print(payer.pubkey())
     await buy(solana_client, token_toBuy, payer, 0.012593837)
 

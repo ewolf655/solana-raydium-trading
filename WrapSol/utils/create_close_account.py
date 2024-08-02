@@ -3,7 +3,7 @@ from solders.pubkey import Pubkey
 from solders.instruction import Instruction
 from solana.rpc.types import TokenAccountOpts
 from solana.transaction import AccountMeta
-from WrapSol.utils.layouts import SWAP_LAYOUT
+from layouts import SWAP_LAYOUT
 import json, requests
 LAMPORTS_PER_SOL = 1000000000
 AMM_PROGRAM_ID = Pubkey.from_string('675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8')
@@ -36,7 +36,10 @@ def make_swap_instruction(amount_in: int, token_account_in: Pubkey.from_string, 
         AccountMeta(pubkey=token_account_out, is_signer=False, is_writable=True),  # UserDestTokenAccount
         AccountMeta(pubkey=owner.pubkey(), is_signer=True, is_writable=False)  # UserOwner
     ]
-
+    SWAP_LAYOUT = cStruct(
+    "instruction" / Int8ul, "amount_in" / Int64ul, "min_amount_out" / Int64ul
+    )
+    
     data = SWAP_LAYOUT.build(
         dict(
             instruction=9,
